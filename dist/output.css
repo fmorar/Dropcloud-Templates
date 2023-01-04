@@ -617,12 +617,24 @@ video {
   left: -0.25rem;
 }
 
+.top-\[100px\] {
+  top: 100px;
+}
+
 .left-0 {
   left: 0px;
 }
 
 .right-0 {
   right: 0px;
+}
+
+.top-10 {
+  top: 2.5rem;
+}
+
+.right-4 {
+  right: 1rem;
 }
 
 .isolate {
@@ -831,6 +843,10 @@ video {
 
 .transform-none {
   transform: none;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 .touch-auto {

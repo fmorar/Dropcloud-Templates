@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <title>Dropcloud Templates</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
+    <link href="/dist/output.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v6.2.0/css/all.css">
+</head>
+
+<body>
+    <div
+        class="w-full absolute top-[100px] m-auto left-0 right-0 max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow-md sm:p-6 md:p-8">
+        <form class="parent space-y-6 mt-4" action="#">
+            <h5 class="text-xl font-medium text-gray-900 text-center">Create organization</h5>
+            <div>
+                <label for="companyName" class="block mb-2 text-sm font-medium text-gray-900">Company Name</label>
+                <input type="text" name="companyName" id="company-name"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    placeholder="Cameron" required>
+            </div>
+            <div>
+                <label for="address"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Address</label>
+                <input type="text" name="address" id="address"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    placeholder="Williamson" required>
+            </div>
+            <div>
+                <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Country</label>
+                <select id="selectCountry" name="selectCountry"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                    <option value="">Choose Country</option>
+                </select>
+            </div>
+            <div>
+                <label for="zip" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Zip</label>
+                <input type="text" name="zip" id="zip"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    placeholder="Williamson" required>
+            </div>
+            <div>
+                <label for="logo" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Company
+                    logo <span class="text-gray-primary">(optional)</span></label>
+                <div class="flex flex-row justify-around items-center">
+                    <div class="drop-zone w-[88px] h-[88px] p-25 flex items-center justify-center text-center font-family-segoeUI font-weight-500 font-size-20 cursor-pointer text-gray-400 border-4 rounded border-dashed seagreen rounded-md;">
+                        <img src="../assets//upload.svg" alt="upload icon" class="drop-zone__prompt">
+                        <!-- <div class="drop-zone__thumb" data-label="myfile.txt"></div> -->
+                        <input type="file" name="myFile" class="drop-zone__input hidden" />
+                        <!-- add multiple attribute to input to support uploading more than one file-->
+                    </div>
+                    <p>Drop file here or <span class="font-bold">browse</span></p>
+                </div>
+            </div>
+            <div>
+                <button type="submit" class="nav-btn-primary m-auto w-full text-white">Create organization</button>
+            </div>
+        </form>
+        <script>
+
+            var select = document.getElementById("selectCountry");
+
+            var countries = new Array("Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antarctica", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burma", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo, Democratic Republic", "Congo, Republic of the", "Costa Rica", "Cote d'Ivoire", "Croatia", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "East Timor", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Greenland", "Grenada", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Hong Kong", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Korea, North", "Korea, South", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Macedonia", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Mongolia", "Morocco", "Monaco", "Mozambique", "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Norway", "Oman", "Pakistan", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Qatar", "Romania", "Russia", "Rwanda", "Samoa", "San Marino", " Sao Tome", "Saudi Arabia", "Senegal", "Serbia and Montenegro", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "Spain", "Sri Lanka", "Sudan", "Suriname", "Swaziland", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe");
+
+            for (var i = 0; i < countries.length; i++) {
+
+                var option = document.createElement("option");
+                //for every turn of the loop create an option tag
+                //console.log(option);
+                var txt = document.createTextNode(countries[i]);
+                //for every turn of the loop create the inner text
+                //console.log(txt);
+                option.appendChild(txt);
+                //for every turn of the loop put the words from txt inside the <option> tags
+                //console.log(option);
+                option.setAttribute("value", countries[i]); //for every turn of the loop set the value attribute to corresponding country name
+                //console.log(option);
+                select.insertBefore(option, select.lastChild);
+                //console.log(select);
+
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                //console.log('DOM fully loaded and parsed');
+                document.querySelector('select[name="selectCountry"]').onchange = alertCountry;
+            }, false);
+
+            function alertCountry(event) {
+                //console.log('DOM loaded');
+                //use "this" to refer to selected element
+                if (!event.target.value) alert('Please select a country');
+                else alert('You chose ' + event.target.value + '. Yay, grab a beer!');
+            }
+
+            document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
+                const dropZoneElement = inputElement.closest(".drop-zone");
+
+                dropZoneElement.addEventListener("click", (event) => {
+                    inputElement.click(); /*clicking on input element whenever the dropzone is clicked so file browser is opened*/
+                });
+
+                inputElement.addEventListener("change", (event) => {
+                    if (inputElement.files.length) {
+                        updateThumbnail(dropZoneElement, inputElement.files[0]);
+                    }
+                });
+
+                dropZoneElement.addEventListener("dragover", (event) => {
+                    event.preventDefault(); /*this along with prevDef in drop event prevent browser from opening file in a new tab*/
+                    dropZoneElement.classList.add("drop-zone--over");
+                });
+                ["dragleave", "dragend"].forEach((type) => {
+                    dropZoneElement.addEventListener(type, (event) => {
+                        dropZoneElement.classList.remove("drop-zone--over");
+                    });
+                });
+                dropZoneElement.addEventListener("drop", (event) => {
+                    event.preventDefault();
+                    console.log(
+                        event.dataTransfer.files
+                    ); /*if you console.log only event and check the same data location, you won't see the file due to a chrome bug!*/
+                    if (event.dataTransfer.files.length) {
+                        inputElement.files =
+                            event.dataTransfer.files; /*asigns dragged file to inputElement*/
+
+                        updateThumbnail(
+                            dropZoneElement,
+                            event.dataTransfer.files[0]
+                        ); /*thumbnail will only show first file if multiple files are selected*/
+                    }
+                    dropZoneElement.classList.remove("drop-zone--over");
+                });
+            });
+            function updateThumbnail(dropZoneElement, file) {
+                let thumbnailElement = dropZoneElement.querySelector(
+                    ".drop-zone__thumb"
+                );
+                /*remove text prompt*/
+                if (dropZoneElement.querySelector(".drop-zone__prompt")) {
+                    dropZoneElement.querySelector(".drop-zone__prompt").remove();
+                }
+
+                /*first time there won't be a thumbnailElement so it has to be created*/
+                if (!thumbnailElement) {
+                    thumbnailElement = document.createElement("div");
+                    thumbnailElement.classList.add("drop-zone__thumb","w-full", "h-full", "rounded-md", "overflow-hidden", "bg-gray-300", "bg-cover", "relative", "after:content-[attr(data-label)]", "after:absolute", "after:bottom-0" , "after:left-0", "after:w-full", "after:p-5", "after:text-white", "after:bg-black", "after:bg-opacity-75", "after:text-center", "after:font-size-14");
+                    dropZoneElement.appendChild(thumbnailElement);
+                }
+                thumbnailElement.dataset.label =
+                    file.name; /*takes file name and sets it as dataset label so css can display it*/
+
+                /*show thumbnail for images*/
+                if (file.type.startsWith("image/")) {
+                    const reader = new FileReader(); /*lets us read files to data URL*/
+                    reader.readAsDataURL(file); /*base 64 format*/
+                    reader.onload = () => {
+                        thumbnailElement.style.backgroundImage = `url('${reader.result}')`; /*asynchronous call. This function runs once reader is done reading file. reader.result is the base 64 format*/
+                        thumbnailElement.style.backgroundPosition = "center";
+                    };
+                } else {
+                    thumbnailElement.style.backgroundImage = null; /*plain background for non image type files*/
+                }
+            }
+        </script>
+</body>
+
+</html>

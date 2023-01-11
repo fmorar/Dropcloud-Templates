@@ -16,6 +16,7 @@
 
 body{
     background: #F7FAFD;
+    font-family: 'Inter';
 }
 
 .navbar input[type="checkbox"],

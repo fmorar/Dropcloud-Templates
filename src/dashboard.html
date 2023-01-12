@@ -38,7 +38,7 @@
                 </defs>
             </svg>Invoices</a>
         <a href="#" class="p-4 text-sm flex items-center hover:bg-sidebar-hover hover:text-white mx-4 rounded"
-            onclick="changeDashboard('option2')"><svg class="mr-2" width="24" height="24" viewBox="0 0 24 24"
+            onclick="changeDashboard('receipts')"><svg class="mr-2" width="24" height="24" viewBox="0 0 24 24"
                 fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clip-path="url(#clip0_1133_19259)">
                     <path d="M7.125 9.75H16.875" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
@@ -128,25 +128,37 @@
                         class="z-10 hidden bg-white divide-y divide-gray-100 rounded shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
                         <div class="py-1">
                             <a href="#"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Add New</a>
+                                class="flex justify-center font-bold px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">+ Add New</a>
                         </div>
                         <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
                             aria-labelledby="dropdownDividerButton">
                             <li>
                                 <a href="#"
-                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">MoneyTor</a>
+                                    class="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                    <img src="../assets/dropcloud-icon.svg" class="mr-2" alt="org generic icon">
+                                    <p>
+                                        Dropcloud
+                                    </p></a>
                             </li>
                             <li>
                                 <a href="#"
-                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">FinTech</a>
+                                    class="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                    <img src="../assets/org.svg" class="mr-2" alt="org generic icon">
+                                    <p>
+                                        MoneyTor
+                                    </p></a>
                             </li>
-                        </ul>
-                       
+                            <li>
+                                <a href="#"
+                                class="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                <img src="../assets/org.svg" class="mr-2" alt="org generic icon">
+                                <p>
+                                    FinTech
+                                </p></a>
+                            </li>
+                        </ul> 
                     </div>
-
-
                 </div>
-
                 <button id="dropdownAvatarNameButton" data-dropdown-toggle="dropdownAvatarName"
                     class="flex items-center text-sm font-medium text-gray-900 rounded-full hover:text-blue-600 dark:hover:text-blue-500 md:mr-0 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:text-white"
                     type="button">
@@ -188,7 +200,7 @@
 
             </div>
         </nav>
-        <div id="dashboard">
+        <div id="dashboard" class="p-8">
             <h1 class="text-4xl font-bold">Welcome to the Dashboard</h1>
             <p>Click on an option in the sidebar to change the dashboard.</p>
         </div>
@@ -215,7 +227,7 @@
             document.getElementById("dashboard").innerHTML = ""
             renderDashboardContent().then(content => {
                 document.getElementById("dashboard").innerHTML = content;
-                includeScript("./dashboards/scripts/invoices.js")
+                includeScript(`./dashboards/scripts/${option}.js`)
             })
         }
 
@@ -225,11 +237,10 @@
                 const response = await fetch("./dashboards/invoices.html");
                 const content = await response.text();
                 return content;
-            } else if (currentOption === "option2") {
+            } else if (currentOption === "receipts") {
                 // Import the content for option 2
-                const response = await fetch("/path/to/option2.html");
+                const response = await fetch("./dashboards/receipts.html");
                 const content = await response.text();
-                includeScript("/path/to/script1.js")
                 return content;
             } else if (currentOption === "option3") {
                 // Import the content for option 3

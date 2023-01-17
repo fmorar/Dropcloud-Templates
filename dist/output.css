@@ -1178,6 +1178,11 @@ input:checked + .toggle-bg {
   margin-right: 0.25rem;
 }
 
+.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
 .mt-2 {
   margin-top: 0.5rem;
 }
@@ -2423,6 +2428,11 @@ input:checked + .toggle-bg {
 .bg-\[rgb\(255\2c 0\2c 0\)\] {
   --tw-bg-opacity: 1;
   background-color: rgb(255 0 0 / var(--tw-bg-opacity));
+}
+
+.bg-sidebar-hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(148 148 148 / var(--tw-bg-opacity));
 }
 
 .bg-opacity-50 {

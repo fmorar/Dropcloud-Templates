@@ -71,35 +71,43 @@ function updateThumbnail(dropZoneElement, file) {
 
 (function () {
 
-    // When the endpoint is available, use this 
-/*function getData() {
-    fetch("https://my-mock-endpoint.com/data")
-      .then((response) => response.json())
-      .then((data) => {
-          let table = document.getElementById("myTable").getElementsByTagName("tbody")[0];
-          data.forEach(function(rowData) {
-            var newRow = table.insertRow(table.length);
-            var fileCell = newRow.insertCell(0);
-            var adminCell = newRow.insertCell(1);
-            var commentCell = newRow.insertCell(2);
-            var statusCell = newRow.insertCell(3);
-            var actionsCell = newRow.insertCell(4);
+    let checkboxes;
 
-            fileCell.innerHTML = rowData.fileName
-            adminCell.innerHTML = rowData.adminName
-            commentCell.innerHTML = rowData.comment
-            statusCell.innerHTML = rowData.status
-            actionsCell.innerHTML = "<button onclick='deleteRow(this)'>Delete</button>";
-          });
-      })
-      .catch((error) => console.log(error));
-  } 
-  document.addEventListener("DOMContentLoaded", function(event) { 
-    getData()
-  });
-  
-  */
- 
+    function handleSelectAll() {
+        checkboxes = document.querySelectorAll('.checkbox');
+        const selectAllCheckbox = document.getElementById("selectAll");
+        checkboxes.forEach(checkbox => checkbox.checked = selectAllCheckbox.checked);
+    }
+
+    // When the endpoint is available, use this 
+    /*function getData() {
+        fetch("https://my-mock-endpoint.com/data")
+          .then((response) => response.json())
+          .then((data) => {
+              let table = document.getElementById("myTable").getElementsByTagName("tbody")[0];
+              data.forEach(function(rowData) {
+                var newRow = table.insertRow(table.length);
+                var fileCell = newRow.insertCell(0);
+                var adminCell = newRow.insertCell(1);
+                var commentCell = newRow.insertCell(2);
+                var statusCell = newRow.insertCell(3);
+                var actionsCell = newRow.insertCell(4);
+    
+                fileCell.innerHTML = rowData.fileName
+                adminCell.innerHTML = rowData.adminName
+                commentCell.innerHTML = rowData.comment
+                statusCell.innerHTML = rowData.status
+                actionsCell.innerHTML = "<button onclick='deleteRow(this)'>Delete</button>";
+              });
+          })
+          .catch((error) => console.log(error));
+      } 
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        getData()
+      });
+      
+      */
+
     let mockData = [
         {
             fileName: "INV-1", adminName: "Wade Warren",
@@ -125,17 +133,41 @@ function updateThumbnail(dropZoneElement, file) {
             let table = document.getElementById("myTable").getElementsByTagName("tbody")[0];
             data.forEach(function (rowData) {
                 var newRow = table.insertRow(table.length);
-                var fileCell = newRow.insertCell(0);
-                var adminCell = newRow.insertCell(1);
-                var commentCell = newRow.insertCell(2);
-                var statusCell = newRow.insertCell(3);
-                var actionsCell = newRow.insertCell(4);
+                var checkboxCell = newRow.insertCell(0);
+                var fileCell = newRow.insertCell(1);
+                var adminCell = newRow.insertCell(2);
+                var commentCell = newRow.insertCell(3);
+                var statusCell = newRow.insertCell(4);
+                var actionsCell = newRow.insertCell(5);
 
                 fileCell.innerHTML = rowData.fileName
                 adminCell.innerHTML = rowData.adminName
                 commentCell.innerHTML = rowData.comment
                 statusCell.innerHTML = rowData.status
-                actionsCell.innerHTML = "<button onclick='deleteRow(this)'>Delete</button>";
+                checkboxCell.innerHTML = `<input type="checkbox" id="checkbox_${rowData.name}" class="checkbox" value="${rowData.name}">`;
+                actionsCell.innerHTML = `
+                <div class="relative">
+                    <button class="bg-white dropdown rounded-md text-sm border border-gray-400 hover:text-gray-500 hover:border-gray-500">
+                        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="1"></circle>
+                            <circle cx="12" cy="5" r="1"></circle>
+                            <circle cx="12" cy="19" r="1"></circle>
+                        </svg>
+                    </button>
+                    <div class="dropdown-content absolute bg-white rounded-md py hidden z-40">
+                    <button onclick='deleteRow(this.parentNode.parentNode.parentNode.parentNode)'>Delete</button>
+                    </div>
+                    </div>
+                `;
+
+            });
+
+            let buttons = document.querySelectorAll(".dropdown");
+            buttons.forEach(function (button) {
+                button.addEventListener("click", function (event) {
+                    let dropdown = event.currentTarget.nextElementSibling;
+                    dropdown.classList.toggle("hidden");
+                });
             });
         })
         .catch((error) => console.log(error));

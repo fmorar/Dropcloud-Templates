@@ -1168,6 +1168,11 @@ input:checked + .toggle-bg {
   margin-right: 1rem;
 }
 
+.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
 .mx-1\.5 {
   margin-left: 0.375rem;
   margin-right: 0.375rem;
@@ -1176,11 +1181,6 @@ input:checked + .toggle-bg {
 .mx-1 {
   margin-left: 0.25rem;
   margin-right: 0.25rem;
-}
-
-.my-2 {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
 }
 
 .mt-2 {
@@ -1217,6 +1217,10 @@ input:checked + .toggle-bg {
 
 .mb-2 {
   margin-bottom: 0.5rem;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
 }
 
 .mb-1 {
@@ -2366,6 +2370,11 @@ input:checked + .toggle-bg {
   border-color: rgb(243 244 246 / var(--tw-border-opacity));
 }
 
+.border-gray-400 {
+  --tw-border-opacity: 1;
+  border-color: rgb(156 163 175 / var(--tw-border-opacity));
+}
+
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -2384,6 +2393,11 @@ input:checked + .toggle-bg {
 .bg-\[\#F5F5F5\] {
   --tw-bg-opacity: 1;
   background-color: rgb(245 245 245 / var(--tw-bg-opacity));
+}
+
+.bg-sidebar-hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(148 148 148 / var(--tw-bg-opacity));
 }
 
 .bg-gray-50 {
@@ -2428,11 +2442,6 @@ input:checked + .toggle-bg {
 .bg-\[rgb\(255\2c 0\2c 0\)\] {
   --tw-bg-opacity: 1;
   background-color: rgb(255 0 0 / var(--tw-bg-opacity));
-}
-
-.bg-sidebar-hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(148 148 148 / var(--tw-bg-opacity));
 }
 
 .bg-opacity-50 {
@@ -2606,6 +2615,11 @@ input:checked + .toggle-bg {
 .px-5 {
   padding-left: 1.25rem;
   padding-right: 1.25rem;
+}
+
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .pt-2 {
@@ -2838,6 +2852,11 @@ input:checked + .toggle-bg {
 .text-blue-500 {
   --tw-text-opacity: 1;
   color: rgb(63 131 248 / var(--tw-text-opacity));
+}
+
+.text-\[\#666687\] {
+  --tw-text-opacity: 1;
+  color: rgb(102 102 135 / var(--tw-text-opacity));
 }
 
 .underline {
@@ -3389,6 +3408,11 @@ body{
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
 }
 
+.hover\:border-gray-500:hover {
+  --tw-border-opacity: 1;
+  border-color: rgb(107 114 128 / var(--tw-border-opacity));
+}
+
 .hover\:bg-sidebar-hover:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(148 148 148 / var(--tw-bg-opacity));
@@ -3431,6 +3455,11 @@ body{
 .hover\:text-gray-600:hover {
   --tw-text-opacity: 1;
   color: rgb(75 85 99 / var(--tw-text-opacity));
+}
+
+.hover\:text-gray-500:hover {
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity));
 }
 
 .before\:hover\:text-center:hover::before {

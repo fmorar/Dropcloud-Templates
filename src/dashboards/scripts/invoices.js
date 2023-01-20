@@ -69,15 +69,13 @@ function updateThumbnail(dropZoneElement, file) {
     }
 }
 
+function handleSelectAll() {
+    let checkboxes = document.querySelectorAll('.checkbox');
+    const selectAllCheckbox = document.getElementById("selectAll");
+    checkboxes.forEach(checkbox => checkbox.checked = selectAllCheckbox.checked);
+}
+
 (function () {
-
-    let checkboxes;
-
-    function handleSelectAll() {
-        checkboxes = document.querySelectorAll('.checkbox');
-        const selectAllCheckbox = document.getElementById("selectAll");
-        checkboxes.forEach(checkbox => checkbox.checked = selectAllCheckbox.checked);
-    }
 
     // When the endpoint is available, use this 
     /*function getData() {
@@ -144,18 +142,44 @@ function updateThumbnail(dropZoneElement, file) {
                 adminCell.innerHTML = rowData.adminName
                 commentCell.innerHTML = rowData.comment
                 statusCell.innerHTML = rowData.status
-                checkboxCell.innerHTML = `<input type="checkbox" id="checkbox_${rowData.name}" class="checkbox" value="${rowData.name}">`;
+                checkboxCell.innerHTML = `<input type="checkbox" id="checkbox_${rowData.name}" class="checkbox w-5 h-5 rounded-sm text-gray-600" value="${rowData.name}">`;
                 actionsCell.innerHTML = `
                 <div class="relative">
-                    <button class="bg-white dropdown rounded-md text-sm border border-gray-400 hover:text-gray-500 hover:border-gray-500">
-                        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="1"></circle>
-                            <circle cx="12" cy="5" r="1"></circle>
-                            <circle cx="12" cy="19" r="1"></circle>
+                    <button class="bg-[#E5E5E5] dropdown rounded-md text-sm border h-8 w-8 ">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="4" cy="12" r="0.5"></circle>
+                        <circle cx="12" cy="12" r="0.5"></circle>
+                        <circle cx="20" cy="12" r="0.5"></circle>
                         </svg>
                     </button>
                     <div class="dropdown-content absolute bg-white rounded-md py hidden z-40">
-                    <button onclick='deleteRow(this.parentNode.parentNode.parentNode.parentNode)'>Delete</button>
+                    <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
+                    aria-labelledby="dropdownDividerButton">
+                    <li>
+                        <a href="#"
+                            class="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                            <p>
+                                Comment
+                            </p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                            <p>
+                                Archive
+                            </p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                            <p>
+                                Delete
+                            </p>
+                        </a>
+                    </li>
+                </ul>
                     </div>
                     </div>
                 `;

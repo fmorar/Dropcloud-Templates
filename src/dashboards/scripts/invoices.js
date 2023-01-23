@@ -146,7 +146,7 @@ function handleSelectAll() {
                 actionsCell.innerHTML = `
                 <div class="relative">
                     <button class="bg-[#E5E5E5] dropdown rounded-md text-sm border h-8 w-8 ">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg viewBox="0 0 24 24" class="dropdown-svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="4" cy="12" r="0.5"></circle>
                         <circle cx="12" cy="12" r="0.5"></circle>
                         <circle cx="20" cy="12" r="0.5"></circle>
@@ -193,6 +193,18 @@ function handleSelectAll() {
                     dropdown.classList.toggle("hidden");
                 });
             });
+
+            window.onclick = function(event) {
+                if (!event.target.matches('.dropdown-svg')) {
+              
+                  var dropdowns = document.getElementsByClassName("dropdown-content");
+                  var i;
+                  for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                      openDropdown.classList.add('hidden');
+                  }
+                }
+              }
         })
         .catch((error) => console.log(error));
 

@@ -189,6 +189,12 @@ function handleSelectAll() {
             let buttons = document.querySelectorAll(".dropdown");
             buttons.forEach(function (button) {
                 button.addEventListener("click", function (event) {
+                    var dropdowns = document.getElementsByClassName("dropdown-content");
+                  var i;
+                  for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                      openDropdown.classList.add('hidden');
+                  }
                     let dropdown = event.currentTarget.nextElementSibling;
                     dropdown.classList.toggle("hidden");
                 });

@@ -69,11 +69,38 @@ function updateThumbnail(dropZoneElement, file) {
     }
 }
 
-function handleSelectAll() {
-    let checkboxes = document.querySelectorAll('.checkbox');
-    const selectAllCheckbox = document.getElementById("selectAll");
-    checkboxes.forEach(checkbox => checkbox.checked = selectAllCheckbox.checked);
-}
+var table = document.getElementById("myTable");
+var input = document.getElementById("default-search");
+
+function debounce(fn, delay) {
+    let timeoutId;
+    return function() {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => {
+            fn.apply(this, arguments);
+        }, delay);
+    };
+  }
+
+  input.addEventListener("input", debounce(function() {
+    var searchValue = input.value.toLowerCase();
+    var rows = table.getElementsByTagName("tr");
+    
+    for (var i = 1; i < rows.length; i++) {
+      var cells = rows[i].getElementsByTagName("td")[1];
+      var match = false;
+      
+      if (cells && cells.textContent.toLowerCase().indexOf(searchValue) != -1) {
+          match = true;
+      }
+      
+      if (match) {
+        rows[i].style.display = "";
+      } else {
+        rows[i].style.display = "none";
+      }
+    }
+  }, 500));
 
 (function () {
 

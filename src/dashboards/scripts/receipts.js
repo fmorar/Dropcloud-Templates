@@ -75,6 +75,39 @@ function handleSelectAll() {
     checkboxes.forEach(checkbox => checkbox.checked = selectAllCheckbox.checked);
 }
 
+var table = document.getElementById("myTable");
+var input = document.getElementById("default-search");
+
+function debounce(fn, delay) {
+    let timeoutId;
+    return function() {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => {
+            fn.apply(this, arguments);
+        }, delay);
+    };
+  }
+
+  input.addEventListener("input", debounce(function() {
+    var searchValue = input.value.toLowerCase();
+    var rows = table.getElementsByTagName("tr");
+    
+    for (var i = 1; i < rows.length; i++) {
+      var cells = rows[i].getElementsByTagName("td")[1];
+      var match = false;
+      
+      if (cells && cells.textContent.toLowerCase().indexOf(searchValue) != -1) {
+          match = true;
+      }
+      
+      if (match) {
+        rows[i].style.display = "";
+      } else {
+        rows[i].style.display = "none";
+      }
+    }
+  }, 500));
+
 (function () {
 
     // When the endpoint is available, use this 
@@ -141,7 +174,38 @@ function handleSelectAll() {
                 fileCell.innerHTML = rowData.fileName
                 adminCell.innerHTML = rowData.adminName
                 commentCell.innerHTML = rowData.comment
-                statusCell.innerHTML = rowData.status
+                statusCell.innerHTML = `<div class="relative">
+                <button class="${rowData.status === "Pending" ? "bg-[#FFFDEA]" : "bg-[#159300] bg-opacity-10"} p-2 w-28 h-7 dropdown rounded-md text-sm border dropdown-svg text-center flex justify-between items-center">
+                ${rowData.status}<svg class="w-4 h-4 ml-1 dropdown-svg" aria-hidden="true" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                </path>
+            </svg>
+                </button>
+                <div class="dropdown-content absolute bg-white rounded-md py hidden z-40">
+                <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
+                aria-labelledby="dropdownDividerButton">
+                <li>
+                    <a href="#"
+                        class="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                        <div class="bg-[#FFFDEA] mr-2 rounded-full w-3 h-3"></div>
+                        <p>
+                            Pending
+                        </p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"
+                        class="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                        <div class="bg-[#159300] mr-2 bg-opacity-10 rounded-full w-3 h-3"></div>
+                        <p>
+                            Processed
+                        </p>
+                    </a>
+                </li>
+            </ul>
+                </div>
+                </div>`
                 checkboxCell.innerHTML = `<input type="checkbox" id="checkbox_${rowData.name}" class="checkbox w-5 h-5 rounded-sm text-gray-600" value="${rowData.name}">`;
                 actionsCell.innerHTML = `
                 <div class="relative">
@@ -152,7 +216,7 @@ function handleSelectAll() {
                         <circle cx="20" cy="12" r="0.5"></circle>
                         </svg>
                     </button>
-                    <div class="dropdown-content absolute bg-white rounded-md py hidden z-40">
+                    <div class="dropdown-content absolute -left-4 bg-white rounded-md py hidden z-40">
                     <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
                     aria-labelledby="dropdownDividerButton">
                     <li>

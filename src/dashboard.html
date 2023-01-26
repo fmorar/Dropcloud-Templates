@@ -215,14 +215,14 @@
     <!-- Render the initial dashboard content -->
 
     <!-- Add a script to handle the option clicks -->
-    <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
+    
     <script>
         let currentOption = "";
 
         function includeScript(src) {
             let script = document.createElement('script');
             script.src = src;
-            script.async = true;
+           
             document.body.appendChild(script);
 
 
@@ -235,6 +235,7 @@
             renderDashboardContent().then(content => {
                 document.getElementById("dashboard").innerHTML = content;
                 includeScript(`./dashboards/scripts/${option}.js`)
+                includeScript("../node_modules/flowbite/dist/flowbite.min.js")
             })
 
             // Remove the "selected" class from the previously selected element
@@ -274,6 +275,7 @@
         changeDashboard("invoices")
 
     </script>
+    <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
 </body>
 
 </html>

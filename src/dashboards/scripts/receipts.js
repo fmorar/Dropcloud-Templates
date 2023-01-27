@@ -108,6 +108,16 @@ function debounce(fn, delay) {
     }
   }, 500));
 
+  // Get the dropdown button and dropdown menu elements
+var dropdownButton = document.getElementById("dropdownRadioButton");
+var dropdownMenu = document.getElementById("dropdownDefaultRadio");
+
+// Add a click event listener to the button
+dropdownButton.addEventListener("click", function() {
+  // Toggle the "hidden" class on the dropdown menu
+  dropdownMenu.classList.toggle("hidden");
+});
+
 (function () {
 
     // When the endpoint is available, use this 

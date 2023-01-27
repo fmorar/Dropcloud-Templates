@@ -1,7 +1,8 @@
 <h1 class="text-4xl font-bold">Receipts</h1>
 <div>
     <div class="flex flex-row justify-around items-center">
-        <div class="drop-zone mt-8 w-full p-25 flex items-center flex-col h-[200px] justify-center text-center font-family-segoeUI font-weight-500 font-size-20 cursor-pointer text-gray-400 border-4 rounded border-dashed seagreen rounded-md;">
+        <div
+            class="drop-zone mt-8 w-full p-25 flex items-center flex-col h-[200px] justify-center text-center font-family-segoeUI font-weight-500 font-size-20 cursor-pointer text-gray-400 border-4 rounded border-dashed seagreen rounded-md;">
             <img src="../../assets/upload.svg" alt="upload icon" class="drop-zone__prompt w-10 h-10">
             <!-- <div class="drop-zone__thumb" data-label="myfile.txt"></div> -->
             <input type="file" name="myFile" class="drop-zone__input hidden" />
@@ -10,125 +11,97 @@
         </div>
     </div>
 </div>
-<div class="mt-8 flex justify-between">
-    <form>   
-        <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+<div class="mt-8 flex justify-between items-center">
+    <form>
+        <label for="default-search"
+            class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
         <div class="relative">
             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none"
+                    stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
             </div>
-            <input type="search" id="default-search" class="block w-[400px] p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search by file name... " required>
+            <input type="search" id="default-search"
+                class="block w-[400px] p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Search by file name... " required>
         </div>
     </form>
     <div class="flex flex-row">
 
-        <button id="dropdownRadioButton" data-dropdown-toggle="dropdownDefaultRadio" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Status <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
-        
+        <button id="dropdownRadioButton" data-dropdown-toggle="dropdownDefaultRadio"
+            class="text-[#8E8EA9] border border-[#C0C0CF]  focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
+            type="button">Status <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg></button>
+
         <!-- Dropdown menu -->
-        <div id="dropdownDefaultRadio" class="z-10 hidden w-48 bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600">
+        <div id="dropdownDefaultRadio"
+            class="z-10 hidden w-48 bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600 position-absolute 
+            
+            mt-auto 
+            ml-0 
+            absolute translate-x-[664px] translate-y-[459px]" style="inset: 0px auto auto 0px;">
             <ul class="p-3 space-y-3 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownRadioButton">
-              <li>
-                <div class="flex items-center">
-                    <input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-                    <label for="default-radio-1" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">All</label>
-                </div>
-              </li>
-              <li>
-                <div class="flex items-center">
-                    <input checked id="default-radio-2" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-                    <label for="default-radio-2" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Processed</label>
-                </div>
-              </li>
-              <li>
-                <div class="flex items-center">
-                    <input id="default-radio-3" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-                    <label for="default-radio-3" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Pending</label>
-                </div>
-              </li>
+                <li>
+                    <div class="flex items-center">
+                        <input id="default-radio-1" type="radio" value="" name="default-radio"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                        <label for="default-radio-1"
+                            class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">All</label>
+                    </div>
+                </li>
+                <li>
+                    <div class="flex items-center">
+                        <input checked id="default-radio-2" type="radio" value="" name="default-radio"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                        <label for="default-radio-2"
+                            class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Processed</label>
+                    </div>
+                </li>
+                <li>
+                    <div class="flex items-center">
+                        <input id="default-radio-3" type="radio" value="" name="default-radio"
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                        <label for="default-radio-3"
+                            class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Pending</label>
+                    </div>
+                </li>
             </ul>
         </div>
-        
-                <button href="#" class="flex items-center p-4 text-sm hover:bg-sidebar-hover hover:text-white mx-4 my-2 rounded"
-                onclick="changeDashboard('invoices')"><svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="24"
-                    height="24" viewBox="0 0 24 24" fill="none">
-                    <g clip-path="url(#clip0_1133_19248)">
-                        <path
-                            d="M18.75 21H5.25C5.05109 21 4.86032 20.921 4.71967 20.7803C4.57902 20.6397 4.5 20.4489 4.5 20.25V3.75C4.5 3.55109 4.57902 3.36032 4.71967 3.21967C4.86032 3.07902 5.05109 3 5.25 3H14.25L19.5 8.25V20.25C19.5 20.4489 19.421 20.6397 19.2803 20.7803C19.1397 20.921 18.9489 21 18.75 21Z"
-                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M14.25 3V8.25H19.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                        <path d="M11.4615 9V9.92308" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M11.4615 16.0769V17" stroke="currentColor" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                        <path
-                            d="M13.6154 11.4616C13.6154 11.2595 13.5756 11.0595 13.4983 10.8728C13.421 10.6862 13.3076 10.5166 13.1648 10.3737C13.0219 10.2308 12.8523 10.1175 12.6657 10.0402C12.479 9.96289 12.279 9.9231 12.0769 9.9231H10.6923C10.2843 9.9231 9.89297 10.0852 9.60445 10.3737C9.31593 10.6622 9.15385 11.0535 9.15385 11.4616C9.15385 11.8696 9.31593 12.2609 9.60445 12.5494C9.89297 12.8379 10.2843 13 10.6923 13H12.3846C12.7926 13 13.184 13.1621 13.4725 13.4506C13.761 13.7391 13.9231 14.1305 13.9231 14.5385C13.9231 14.9465 13.761 15.3378 13.4725 15.6263C13.184 15.9149 12.7926 16.0769 12.3846 16.0769H10.5385C10.1304 16.0769 9.73912 15.9149 9.4506 15.6263C9.16209 15.3378 9 14.9465 9 14.5385"
-                            stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
-                    </g>
-                    <defs>
-                        <clipPath id="clip0_1133_19248">
-                            <rect width="24" height="24" fill="white" />
-                        </clipPath>
-                    </defs>
-                </svg>Invoices</button>
-                <button href="#" class="flex items-center p-4 text-sm hover:bg-sidebar-hover hover:text-white mx-4 my-2 rounded"
-                onclick="changeDashboard('invoices')"><svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="24"
-                    height="24" viewBox="0 0 24 24" fill="none">
-                    <g clip-path="url(#clip0_1133_19248)">
-                        <path
-                            d="M18.75 21H5.25C5.05109 21 4.86032 20.921 4.71967 20.7803C4.57902 20.6397 4.5 20.4489 4.5 20.25V3.75C4.5 3.55109 4.57902 3.36032 4.71967 3.21967C4.86032 3.07902 5.05109 3 5.25 3H14.25L19.5 8.25V20.25C19.5 20.4489 19.421 20.6397 19.2803 20.7803C19.1397 20.921 18.9489 21 18.75 21Z"
-                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M14.25 3V8.25H19.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                        <path d="M11.4615 9V9.92308" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M11.4615 16.0769V17" stroke="currentColor" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                        <path
-                            d="M13.6154 11.4616C13.6154 11.2595 13.5756 11.0595 13.4983 10.8728C13.421 10.6862 13.3076 10.5166 13.1648 10.3737C13.0219 10.2308 12.8523 10.1175 12.6657 10.0402C12.479 9.96289 12.279 9.9231 12.0769 9.9231H10.6923C10.2843 9.9231 9.89297 10.0852 9.60445 10.3737C9.31593 10.6622 9.15385 11.0535 9.15385 11.4616C9.15385 11.8696 9.31593 12.2609 9.60445 12.5494C9.89297 12.8379 10.2843 13 10.6923 13H12.3846C12.7926 13 13.184 13.1621 13.4725 13.4506C13.761 13.7391 13.9231 14.1305 13.9231 14.5385C13.9231 14.9465 13.761 15.3378 13.4725 15.6263C13.184 15.9149 12.7926 16.0769 12.3846 16.0769H10.5385C10.1304 16.0769 9.73912 15.9149 9.4506 15.6263C9.16209 15.3378 9 14.9465 9 14.5385"
-                            stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
-                    </g>
-                    <defs>
-                        <clipPath id="clip0_1133_19248">
-                            <rect width="24" height="24" fill="white" />
-                        </clipPath>
-                    </defs>
-                </svg>Archive</button>
-                <button href="#" class="flex items-center p-4 text-sm hover:bg-sidebar-hover hover:text-white mx-4 my-2 rounded"
-                onclick="changeDashboard('invoices')"><svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="24"
-                    height="24" viewBox="0 0 24 24" fill="none">
-                    <g clip-path="url(#clip0_1133_19248)">
-                        <path
-                            d="M18.75 21H5.25C5.05109 21 4.86032 20.921 4.71967 20.7803C4.57902 20.6397 4.5 20.4489 4.5 20.25V3.75C4.5 3.55109 4.57902 3.36032 4.71967 3.21967C4.86032 3.07902 5.05109 3 5.25 3H14.25L19.5 8.25V20.25C19.5 20.4489 19.421 20.6397 19.2803 20.7803C19.1397 20.921 18.9489 21 18.75 21Z"
-                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M14.25 3V8.25H19.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                        <path d="M11.4615 9V9.92308" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M11.4615 16.0769V17" stroke="currentColor" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                        <path
-                            d="M13.6154 11.4616C13.6154 11.2595 13.5756 11.0595 13.4983 10.8728C13.421 10.6862 13.3076 10.5166 13.1648 10.3737C13.0219 10.2308 12.8523 10.1175 12.6657 10.0402C12.479 9.96289 12.279 9.9231 12.0769 9.9231H10.6923C10.2843 9.9231 9.89297 10.0852 9.60445 10.3737C9.31593 10.6622 9.15385 11.0535 9.15385 11.4616C9.15385 11.8696 9.31593 12.2609 9.60445 12.5494C9.89297 12.8379 10.2843 13 10.6923 13H12.3846C12.7926 13 13.184 13.1621 13.4725 13.4506C13.761 13.7391 13.9231 14.1305 13.9231 14.5385C13.9231 14.9465 13.761 15.3378 13.4725 15.6263C13.184 15.9149 12.7926 16.0769 12.3846 16.0769H10.5385C10.1304 16.0769 9.73912 15.9149 9.4506 15.6263C9.16209 15.3378 9 14.9465 9 14.5385"
-                            stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
-                    </g>
-                    <defs>
-                        <clipPath id="clip0_1133_19248">
-                            <rect width="24" height="24" fill="white" />
-                        </clipPath>
-                    </defs>
-                </svg>Delete</button>
-            </div>
+        <button href="#"
+            class="flex items-center justify-center px-2 text-sm text-[#595959] border w-[100px] h-[40px] border-[#C0C0CF] mx-4 rounded"
+            onclick="changeDashboard('invoices')">
+            <img src="../../assets/comment.svg" alt="comment icon" class="mr-2">
+            Comment</button>
+        <button href="#"
+            class="flex items-center justify-center px-2 border w-[100px] h-[40px] border-[#C0C0CF] text-sm text-[#595959] rounded"
+            onclick="changeDashboard('invoices')">
+            <img src="../../assets/archive.svg" alt="comment icon" class="mr-2">
+            Archive</button>
+        <button href="#"
+            class="flex items-center justify-center px-2 border w-[100px] h-[40px] border-[#C0C0CF] text-sm text-[#595959] mx-4 rounded"
+            onclick="changeDashboard('invoices')">
+            <img src="../../assets/delete.svg" alt="comment icon" class="mr-2">
+            Delete</button>
+    </div>
 </div>
 <div>
     <table id="myTable" class="w-full">
         <thead>
-          <tr class="mb-8 text-[#666687]">
-            <th class="text-left py-4"><input type="checkbox" class="w-5 h-5 rounded-sm text-gray-600" id="selectAll" onchange="handleSelectAll()"></th>
-            <th class="text-left py-4">File Name</th>
-            <th class="text-left py-4">Admin Name</th>
-            <th class="text-left py-4">Comment</th>
-            <th class="text-left py-4">Status</th>
-          </tr>
+            <tr class="mb-8 text-[#666687]">
+                <th class="text-left py-4"><input type="checkbox" class="w-5 h-5 rounded-sm text-gray-600"
+                        id="selectAll" onchange="handleSelectAll()"></th>
+                <th class="text-left py-4">File Name</th>
+                <th class="text-left py-4">Admin Name</th>
+                <th class="text-left py-4">Comment</th>
+                <th class="text-left py-4">Status</th>
+            </tr>
         </thead>
         <br>
         <tbody class="mt-2">
         </tbody>
-      </table>
+    </table>
 </div>

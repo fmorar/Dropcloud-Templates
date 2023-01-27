@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v6.2.0/css/all.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter" />
     <link href="/dist/output.css" rel="stylesheet" />
+    <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
 </head>
 
 <body class="flex overflow-x-hidden">
@@ -235,7 +236,6 @@
             renderDashboardContent().then(content => {
                 document.getElementById("dashboard").innerHTML = content;
                 includeScript(`./dashboards/scripts/${option}.js`)
-                includeScript("../node_modules/flowbite/dist/flowbite.min.js")
             })
 
             // Remove the "selected" class from the previously selected element
@@ -275,7 +275,7 @@
         changeDashboard("invoices")
 
     </script>
-    <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
 </body>
 
 </html>

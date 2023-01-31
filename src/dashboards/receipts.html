@@ -55,91 +55,97 @@
     </div>
   </form>
   <div class="flex flex-row">
-    <button
-      id="dropdownRadioButton"
-      data-dropdown-toggle="dropdownDefaultRadio"
-      class="text-[#8E8EA9] border border-[#C0C0CF] focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
-      type="button"
-    >
-      Status
-      <svg
-        class="w-4 h-4 ml-2"
-        aria-hidden="true"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M19 9l-7 7-7-7"
-        ></path>
-      </svg>
-    </button>
+    <div class="relative">
+        <button
+          id="dropdownRadioButton"
+          data-dropdown-toggle="dropdownDefaultRadio"
+          class="text-[#8E8EA9] border border-[#C0C0CF] focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
+          type="button"
+        >
+          Status
+          <svg
+            class="w-4 h-4 ml-2"
+            aria-hidden="true"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            ></path>
+          </svg>
+        </button>
+  
+        <!-- Dropdown menu -->
+        <div
+          id="dropdownDefaultRadio"
+          class="z-10 hidden w-48 bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600 mt-auto top-0 left-0 ml-0 absolute translate-y-[50px]"
+          style="inset: 0px auto auto 0px"
+        >
+          <ul
+            class="p-3 space-y-3 text-sm text-gray-700 dark:text-gray-200"
+            aria-labelledby="dropdownRadioButton"
+          >
+            <li>
+              <div class="flex items-center">
+                <input
+                  checked
+                  id="default-radio-1"
+                  type="radio"
+                  value=""
+                  name="default-radio"
+                  onclick="handleRadioClick(this);"
+                  class="w-4 h-4  bg-gray-100 border-gray-300 checked:bg-[#727272] text-[#727272]"
+                />
+                <label
+                  for="default-radio-1"
+                  class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                  >All</label
+                >
+              </div>
+            </li>
+            <li>
+              <div class="flex items-center">
+                <input
+                  id="default-radio-2"
+                  type="radio"
+                  value="processed"
+                  name="default-radio"
+                  onclick="handleRadioClick(this);"
+                  class="w-4 h-4 bg-gray-100 border-gray-300 checked:bg-[#727272] text-[#727272]"
+                />
+                <label
+                  for="default-radio-2"
+                  class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                  >Processed</label
+                >
+              </div>
+            </li>
+            <li>
+              <div class="flex items-center">
+                <input
+                  id="default-radio-3"
+                  type="radio"
+                  value="pending"
+                  name="default-radio"
+                  onclick="handleRadioClick(this);"
+                  class="w-4 h-4 bg-gray-100 border-gray-300 checked:bg-[#727272] text-[#727272]"
+                />
+                <label
+                  for="default-radio-3"
+                  class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                  >Pending</label
+                >
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
 
-    <!-- Dropdown menu -->
-    <div
-      id="dropdownDefaultRadio"
-      class="z-10 hidden w-48 bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600 position-absolute mt-auto ml-0 absolute translate-x-[664px] translate-y-[459px]"
-      style="inset: 0px auto auto 0px"
-    >
-      <ul
-        class="p-3 space-y-3 text-sm text-gray-700 dark:text-gray-200"
-        aria-labelledby="dropdownRadioButton"
-      >
-        <li>
-          <div class="flex items-center">
-            <input
-              id="default-radio-1"
-              type="radio"
-              value=""
-              name="default-radio"
-              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-            />
-            <label
-              for="default-radio-1"
-              class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-              >All</label
-            >
-          </div>
-        </li>
-        <li>
-          <div class="flex items-center">
-            <input
-              checked
-              id="default-radio-2"
-              type="radio"
-              value=""
-              name="default-radio"
-              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-            />
-            <label
-              for="default-radio-2"
-              class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-              >Processed</label
-            >
-          </div>
-        </li>
-        <li>
-          <div class="flex items-center">
-            <input
-              id="default-radio-3"
-              type="radio"
-              value=""
-              name="default-radio"
-              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-            />
-            <label
-              for="default-radio-3"
-              class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-              >Pending</label
-            >
-          </div>
-        </li>
-      </ul>
-    </div>
     <div id="action-buttons" class="flex-row hidden">
       <button
         href="#"
@@ -218,3 +224,32 @@
     </div>
   </div>
 </div>
+<div id="comment" class="fixed inset-0 hidden">
+    <div class="bg-gray-900 opacity-75 fixed inset-0"></div>
+    <div class="relative p-6">
+      <div
+        class="w-full space-y-4 absolute top-[100px] m-auto left-0 right-0 max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow-md"
+      >
+        <img
+          class="float-right cursor-pointer"
+          src="../../assets/close.svg"
+          alt="close icon"
+          onclick="showModal('comment')"
+        />
+        <h5 class="text-xl text-gray-900 text-center mt-2 font-bold">Add a comment</h5>
+        <p id="comment-text" class="text-dark-modal-primary text-center mt-4"></p>
+        <textarea name="comment" id="" cols="30" rows="10" placeholder="Comment"></textarea>
+        <div class="flex flex-row justify-around">
+          <button
+            type="submit"
+            class="nav-btn-secondary w-full mx-1 text-[#595959] border border-[#C0C0CF] rounded"
+          >
+            Cancel
+          </button>
+          <button type="submit" class="nav-btn-primary w-full mx-1 text-white">
+            Add comment
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -151,6 +151,27 @@ input.addEventListener(
   }, 500)
 );
 
+
+function handleRadioClick(myRadio) {
+    var searchValue = myRadio.value.toLowerCase();
+    var rows = table.getElementsByTagName("tr");
+
+    for (var i = 1; i < rows.length; i++) {
+      var cells = rows[i].getElementsByTagName("td")[4].getElementsByTagName("button")[0];
+      var match = false;
+
+      if (cells && cells.textContent.toLowerCase().indexOf(searchValue) != -1) {
+        match = true;
+      }
+
+      if (match) {
+        rows[i].style.display = "";
+      } else {
+        rows[i].style.display = "none";
+      }
+    }
+}
+
 // Get the dropdown button and dropdown menu elements
 var dropdownButton = document.getElementById("dropdownRadioButton");
 var dropdownMenu = document.getElementById("dropdownDefaultRadio");
@@ -165,12 +186,23 @@ function showModal(option) {
   const selectedModal = document.getElementById(option);
   selectedModal.classList.toggle("hidden");
   const checkedRows = document.querySelectorAll(".checkbox:checked").length;
-  document.getElementById("delete-text").textContent =
-    checkedRows > 1
-      ? `Are you sure you want to delete these ${
-          document.querySelectorAll(".checkbox:checked").length
-        } invoices?`
-      : `Are you sure you want to delete this invoice?`;
+  console.log(document.querySelectorAll(".checkbox:checked"))
+  switch(option){
+    case "delete":
+        document.getElementById("delete-text").textContent =
+        checkedRows > 1
+        ? `Are you sure you want to delete these ${
+            document.querySelectorAll(".checkbox:checked").length
+            } invoices?`
+        : `Are you sure you want to delete this invoice?`;
+        break
+    case "comment":
+        document.getElementById("comment-text").textContent =
+        `Add a comment to`;
+        break
+  }
+     
+  
 }
 
 // When the endpoint is available, use this
@@ -280,7 +312,7 @@ getData()
               </ul>
                   </div>
                   </div>`;
-      checkboxCell.innerHTML = `<input type="checkbox" id="checkbox_${rowData.name}" onchange="handleSelect()"  class="checkbox w-5 h-5 rounded-sm text-gray-600" value="${rowData.name}">`;
+      checkboxCell.innerHTML = `<input type="checkbox" id="${rowData.fileName}" onchange="handleSelect()"  class="checkbox w-5 h-5 rounded-sm text-gray-600" value="${rowData.name}">`;
       actionsCell.innerHTML = `
                   <div class="relative">
                       <button class="bg-[#E5E5E5] dropdown rounded-md text-sm border h-8 w-8 ">

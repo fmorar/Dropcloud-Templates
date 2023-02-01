@@ -214,6 +214,7 @@
         <button
           type="submit"
           class="nav-btn-secondary w-full mx-1 text-[#595959] border border-[#C0C0CF] rounded"
+          onclick="showModal('delete')"
         >
           Cancel
         </button>
@@ -238,11 +239,14 @@
         />
         <h5 class="text-xl text-gray-900 text-center mt-2 font-bold">Add a comment</h5>
         <p id="comment-text" class="text-dark-modal-primary text-center mt-4"></p>
-        <textarea name="comment" id="" cols="30" rows="10" placeholder="Comment"></textarea>
+        <div class="flex justify-center">
+          <textarea name="comment" id="" cols="30" rows="10" placeholder="Comment"></textarea>
+        </div>
         <div class="flex flex-row justify-around">
           <button
             type="submit"
             class="nav-btn-secondary w-full mx-1 text-[#595959] border border-[#C0C0CF] rounded"
+            onclick="showModal('comment')"
           >
             Cancel
           </button>

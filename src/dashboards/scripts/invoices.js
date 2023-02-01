@@ -198,7 +198,7 @@ function showModal(option) {
         break
     case "comment":
         document.getElementById("comment-text").textContent =
-        `Add a comment to`;
+        `Add a comment to ${[...document.querySelectorAll(".checkbox:checked")].map((row) => row.id).join(', ')}`;
         break
   }
      

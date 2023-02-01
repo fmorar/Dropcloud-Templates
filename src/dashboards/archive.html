@@ -1,23 +1,4 @@
-<h1 class="text-4xl font-bold">Receipts</h1>
-<div>
-  <div class="flex flex-row justify-around items-center">
-    <div
-      class="drop-zone mt-8 w-full p-25 flex items-center flex-col h-[200px] justify-center text-center font-family-segoeUI font-weight-500 font-size-20 cursor-pointer text-gray-400 border-4 rounded border-dashed seagreen rounded-md;"
-    >
-      <img
-        src="../../assets/upload.svg"
-        alt="upload icon"
-        class="drop-zone__prompt w-10 h-10"
-      />
-      <!-- <div class="drop-zone__thumb" data-label="myfile.txt"></div> -->
-      <input type="file" name="myFile" class="drop-zone__input hidden" />
-      <!-- add multiple attribute to input to support uploading more than one file-->
-      <p class="drop-zone__text">
-        Drop file here or <span class="font-bold">browse</span>
-      </p>
-    </div>
-  </div>
-</div>
+<h1 class="text-4xl font-bold">Archive</h1>
 <div class="mt-8 flex justify-between items-center">
   <form>
     <label
@@ -62,7 +43,7 @@
           class="text-[#8E8EA9] border border-[#C0C0CF] focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
           type="button"
         >
-          Status
+          Type
           <svg
             class="w-4 h-4 ml-2"
             aria-hidden="true"
@@ -113,7 +94,7 @@
                 <input
                   id="default-radio-2"
                   type="radio"
-                  value="processed"
+                  value="invoice"
                   name="default-radio"
                   onclick="handleRadioClick(this);"
                   class="w-4 h-4 bg-gray-100 border-gray-300 checked:bg-[#727272] text-[#727272]"
@@ -121,7 +102,7 @@
                 <label
                   for="default-radio-2"
                   class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                  >Processed</label
+                  >Receipts</label
                 >
               </div>
             </li>
@@ -130,7 +111,7 @@
                 <input
                   id="default-radio-3"
                   type="radio"
-                  value="pending"
+                  value="receipt"
                   name="default-radio"
                   onclick="handleRadioClick(this);"
                   class="w-4 h-4 bg-gray-100 border-gray-300 checked:bg-[#727272] text-[#727272]"
@@ -138,7 +119,7 @@
                 <label
                   for="default-radio-3"
                   class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                  >Pending</label
+                  >Invoices</label
                 >
               </div>
             </li>
@@ -189,7 +170,6 @@
         <th class="text-left py-4">File Name</th>
         <th class="text-left py-4">Admin Name</th>
         <th class="text-left py-4">Comment</th>
-        <th class="text-left py-4">Status</th>
       </tr>
     </thead>
     <br />

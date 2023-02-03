@@ -1,92 +1,4 @@
-document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
-    const dropZoneElement = inputElement.closest(".drop-zone");
-  
-    dropZoneElement.addEventListener("click", (event) => {
-      inputElement.click(); /*clicking on input element whenever the dropzone is clicked so file browser is opened*/
-    });
-  
-    inputElement.addEventListener("change", (event) => {
-      if (inputElement.files.length) {
-        updateThumbnail(dropZoneElement, inputElement.files[0]);
-      }
-    });
-  
-    dropZoneElement.addEventListener("dragover", (event) => {
-      event.preventDefault(); /*this along with prevDef in drop event prevent browser from opening file in a new tab*/
-      dropZoneElement.classList.add("drop-zone--over");
-    });
-    ["dragleave", "dragend"].forEach((type) => {
-      dropZoneElement.addEventListener(type, (event) => {
-        dropZoneElement.classList.remove("drop-zone--over");
-      });
-    });
-    dropZoneElement.addEventListener("drop", (event) => {
-      event.preventDefault();
-      console.log(
-        event.dataTransfer.files
-      ); /*if you console.log only event and check the same data location, you won't see the file due to a chrome bug!*/
-      if (event.dataTransfer.files.length) {
-        inputElement.files =
-          event.dataTransfer.files; /*asigns dragged file to inputElement*/
-  
-        updateThumbnail(
-          dropZoneElement,
-          event.dataTransfer.files[0]
-        ); /*thumbnail will only show first file if multiple files are selected*/
-      }
-      dropZoneElement.classList.remove("drop-zone--over");
-    });
-  });
-  function updateThumbnail(dropZoneElement, file) {
-    let thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
-    /*remove text prompt*/
-    if (dropZoneElement.querySelector(".drop-zone__prompt")) {
-      dropZoneElement.querySelector(".drop-zone__prompt").remove();
-      dropZoneElement.querySelector(".drop-zone__text").remove();
-    }
-  
-    /*first time there won't be a thumbnailElement so it has to be created*/
-    if (!thumbnailElement) {
-      thumbnailElement = document.createElement("div");
-      thumbnailElement.classList.add(
-        "drop-zone__thumb",
-        "w-full",
-        "h-full",
-        "rounded-md",
-        "overflow-hidden",
-        "bg-gray-300",
-        "bg-cover",
-        "relative",
-        "after:content-[attr(data-label)]",
-        "after:absolute",
-        "after:bottom-0",
-        "after:left-0",
-        "after:w-full",
-        "after:p-5",
-        "after:text-white",
-        "after:bg-black",
-        "after:bg-opacity-75",
-        "after:text-center",
-        "after:font-size-14"
-      );
-      dropZoneElement.appendChild(thumbnailElement);
-    }
-    thumbnailElement.dataset.label =
-      file.name; /*takes file name and sets it as dataset label so css can display it*/
-  
-    /*show thumbnail for images*/
-    if (file.type.startsWith("image/")) {
-      const reader = new FileReader(); /*lets us read files to data URL*/
-      reader.readAsDataURL(file); /*base 64 format*/
-      reader.onload = () => {
-        thumbnailElement.style.backgroundImage = `url('${reader.result}')`; /*asynchronous call. This function runs once reader is done reading file. reader.result is the base 64 format*/
-        thumbnailElement.style.backgroundPosition = "center";
-      };
-    } else {
-      thumbnailElement.style.backgroundImage =
-        null; /*plain background for non image type files*/
-    }
-  }
+
   
   function handleSelect() {
     const checkedRows = document.querySelectorAll(".checkbox:checked").length;
@@ -135,7 +47,7 @@ document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
       var rows = table.getElementsByTagName("tr");
   
       for (var i = 1; i < rows.length; i++) {
-        var cells = rows[i].getElementsByTagName("td")[1];
+        var cells = rows[i].getElementsByTagName("td")[0];
         var match = false;
   
         if (cells && cells.textContent.toLowerCase().indexOf(searchValue) != -1) {
@@ -264,16 +176,13 @@ document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
         .getElementsByTagName("tbody")[0];
       data.forEach(function (rowData) {
         var newRow = table.insertRow(table.length);
-        var checkboxCell = newRow.insertCell(0);
-        var fileCell = newRow.insertCell(1);
-        var adminCell = newRow.insertCell(2);
-        var commentCell = newRow.insertCell(3);
-        var statusCell = newRow.insertCell(4);
-        var actionsCell = newRow.insertCell(5);
+        var fileCell = newRow.insertCell(0);
+        var adminCell = newRow.insertCell(1);
+        var statusCell = newRow.insertCell(2);
+        var actionsCell = newRow.insertCell(3);
   
         fileCell.innerHTML = rowData.fileName;
         adminCell.innerHTML = rowData.adminName;
-        commentCell.innerHTML = rowData.comment;
         statusCell.innerHTML = `<div class="relative">
                     <button class="${
                       rowData.status === "Pending"
@@ -312,7 +221,6 @@ document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
                 </ul>
                     </div>
                     </div>`;
-        checkboxCell.innerHTML = `<input type="checkbox" id="${rowData.fileName}" onchange="handleSelect()"  class="checkbox w-5 h-5 rounded-sm text-gray-600" value="${rowData.name}">`;
         actionsCell.innerHTML = `
                     <div class="relative">
                         <button class="bg-[#E5E5E5] dropdown rounded-md text-sm border h-8 w-8 ">

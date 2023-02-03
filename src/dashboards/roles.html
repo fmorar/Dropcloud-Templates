@@ -1,23 +1,4 @@
-<h1 class="text-4xl font-bold">Invoices</h1>
-<div>
-  <div class="flex flex-row justify-around items-center">
-    <div
-      class="drop-zone w-full mt-8 p-25 flex items-center flex-col h-[200px] justify-center text-center font-family-segoeUI font-weight-500 font-size-20 cursor-pointer text-gray-400 border-4 rounded border-dashed seagreen rounded-md;"
-    >
-      <img
-        src="../../assets/upload.svg"
-        alt="upload icon"
-        class="drop-zone__prompt w-10 h-10"
-      />
-      <!-- <div class="drop-zone__thumb" data-label="myfile.txt"></div> -->
-      <input type="file" name="myFile" class="drop-zone__input hidden" />
-      <!-- add multiple attribute to input to support uploading more than one file-->
-      <p class="drop-zone__text">
-        Drop file here or <span class="font-bold">browse</span>
-      </p>
-    </div>
-  </div>
-</div>
+<h1 class="text-4xl font-bold">Roles</h1>
 <div class="mt-8 flex justify-between items-center">
   <form>
     <label
@@ -49,7 +30,7 @@
         type="search"
         id="default-search"
         class="block w-[400px] p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-        placeholder="Search by file name... "
+        placeholder="Search by name or email... "
         required
       />
     </div>
@@ -178,18 +159,9 @@
   <table id="myTable" class="w-full">
     <thead>
       <tr class="mb-8 text-[#666687]">
-        <th class="text-left py-4">
-          <input
-            type="checkbox"
-            class="w-5 h-5 rounded-sm text-gray-600"
-            id="selectAll"
-            onchange="handleSelectAll()"
-          />
-        </th>
-        <th class="text-left py-4">File Name</th>
-        <th class="text-left py-4">Admin Name</th>
-        <th class="text-left py-4">Comment</th>
-        <th class="text-left py-4">Status</th>
+        <th class="text-left py-4">User Name</th>
+        <th class="text-left py-4">Mail</th>
+        <th class="text-left py-4">Role</th>
       </tr>
     </thead>
     <br />

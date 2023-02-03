@@ -54,6 +54,7 @@
         newRow.innerHTML=`<p class="text-[#283555] text-md">${rowData.event}</p><p class="text-[#7E8699] text-sm">${rowData.date}</p>`
         
         document.querySelector(".activity").appendChild(newRow)
+        document.getElementById("spinner").classList.add("hidden")
       });
     })
     .catch((error) => console.log(error));

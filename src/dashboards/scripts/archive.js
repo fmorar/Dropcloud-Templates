@@ -217,6 +217,7 @@ function handleSelect() {
                         </div>
                         </div>
                     `;
+          document.getElementById("spinner").classList.add("hidden")
       });
   
       let buttons = document.querySelectorAll(".dropdown");

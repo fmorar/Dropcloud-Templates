@@ -279,7 +279,7 @@ getData()
                     rowData.status === "Pending"
                       ? "bg-[#FFFDEA]"
                       : "bg-[#159300] bg-opacity-10"
-                  } p-2 w-28 h-7 dropdown rounded-md text-sm border dropdown-svg text-center flex justify-between items-center">
+                  } text-[#6F6F6F] p-2 w-28 h-7 dropdown rounded-md text-sm border dropdown-svg text-center flex justify-between items-center">
                   ${
                     rowData.status
                   }<svg class="w-4 h-4 ml-1 dropdown-svg" aria-hidden="true" fill="none" stroke="currentColor"
@@ -312,11 +312,11 @@ getData()
               </ul>
                   </div>
                   </div>`;
-      checkboxCell.innerHTML = `<input type="checkbox" id="${rowData.fileName}" onchange="handleSelect()"  class="checkbox w-5 h-5 rounded-sm text-gray-600" value="${rowData.name}">`;
+      checkboxCell.innerHTML = `<input type="checkbox" id="${rowData.fileName}" onchange="handleSelect()"  class="checkbox border-[#C0C0CF] flex w-5 h-5 rounded-sm text-gray-600" value="${rowData.name}">`;
       actionsCell.innerHTML = `
                   <div class="relative">
                       <button class="bg-[#E5E5E5] dropdown rounded-md text-sm border h-8 w-8 ">
-                          <svg viewBox="0 0 24 24" class="dropdown-svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <svg viewBox="0 0 24 24" class="dropdown" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                           <circle cx="4" cy="12" r="0.5"></circle>
                           <circle cx="12" cy="12" r="0.5"></circle>
                           <circle cx="20" cy="12" r="0.5"></circle>
@@ -371,7 +371,7 @@ getData()
     });
 
     window.onclick = function (event) {
-      if (!event.target.matches(".dropdown-svg")) {
+      if (!event.target.matches(".dropdown")) {
         var dropdowns = document.getElementsByClassName("dropdown-content");
         var i;
         for (i = 0; i < dropdowns.length; i++) {

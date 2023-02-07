@@ -187,21 +187,21 @@
                     <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
                         aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton">
                         <li>
-                            <a href="#"
-                                class="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                            <button onclick="changeDashboard('account')"
+                                class="flex items-center w-full py-2 hover:bg-gray-100">
                                 <img class="w-8 h-8 mr-2 rounded-full" src="../assets/settings.svg"
                                     alt="account settings">
                                 <p>Account settings</p>
-                            </a>
+                            </button>
                         </li>
                         <li>
-                            <a href="#"
-                                class="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                            <button href="#"
+                                class="flex items-center w-full py-2 hover:bg-gray-100">
                                 <img class="w-8 h-8 mr-2 rounded-full" src="../assets/logout.svg" alt="log out">
                                 <p>
                                     Log out
                                 </p>
-                            </a>
+                            </button>
                         </li>
                     </ul>
                 </div>
@@ -233,7 +233,7 @@
             currentOption = option;
             // Render the new dashboard content
             document.getElementById("dashboard").innerHTML = ""
-            renderDashboardContent().then(content => {
+            renderDashboardContent(option).then(content => {
                 document.getElementById("dashboard").innerHTML = content;
                 includeScript(`./dashboards/scripts/${option}.js`)
             })
@@ -250,36 +250,10 @@
             }
         }
 
-        async function renderDashboardContent() {
-            if (currentOption === "invoices") {
-                // Import the content for option 1
-                const response = await fetch("./dashboards/invoices.html");
+        async function renderDashboardContent(option) {
+                const response = await fetch(`./dashboards/${option}.html`);
                 const content = await response.text();
                 return content;
-            } else if (currentOption === "receipts") {
-                // Import the content for option 2
-                const response = await fetch("./dashboards/receipts.html");
-                const content = await response.text();
-                return content;
-            } else if (currentOption === "history") {
-                // Import the content for option 3
-                const response = await fetch("./dashboards/history.html");
-                const content = await response.text();
-                return content;
-            } else if (currentOption === "archive") {
-                // Import the content for option 3
-                const response = await fetch("./dashboards/archive.html");
-                const content = await response.text();
-                return content;
-            } else if (currentOption === "roles") {
-                // Import the content for option 3
-                const response = await fetch("./dashboards/roles.html");
-                const content = await response.text();
-                return content;
-            }
-             else {
-                return `<h1 class="text-4xl font-bold">Welcome to the Dashboard</h1><p>Click on an option in the sidebar to change the dashboard.</p>`;
-            }
         }
 
         changeDashboard("invoices")

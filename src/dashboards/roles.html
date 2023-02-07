@@ -63,7 +63,7 @@
         class="text-[#8E8EA9] border border-[#C0C0CF] focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
         type="button"
       >
-        Status
+        Role
         <svg
           class="w-4 h-4 ml-2"
           aria-hidden="true"
@@ -220,17 +220,20 @@
         onclick="showModal('invite')"
       />
       <h5 class="text-xl text-gray-900 text-center mt-2 font-bold">
-        Add a comment
+        Invite user
       </h5>
-      <p id="comment-text" class="text-dark-modal-primary text-center mt-4"></p>
+      <p id="comment-text" class="text-dark-modal-primary text-center mt-4">Enter the email of the user you want to invite.</p>
+      <h5 class="text-md ml-2 text-gray-900 text-left mt-2 font-bold">
+        Email
+      </h5>
       <div class="flex justify-center">
-        <textarea
-          name="comment"
-          id=""
-          cols="30"
-          rows="10"
-          placeholder="Comment"
-        ></textarea>
+        <input
+        type="search"
+        id="default-search"
+        class="block w-[400px] p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        placeholder="Email... "
+        required
+        />
       </div>
       <div class="flex flex-row justify-around">
         <button
@@ -241,7 +244,7 @@
           Cancel
         </button>
         <button type="submit" class="nav-btn-primary w-full mx-1 text-white">
-          Add comment
+          Send invitation
         </button>
       </div>
     </div>

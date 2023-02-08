@@ -2,17 +2,65 @@
 <div class="w-full mx-auto mt-4">
     <!-- Tabs -->
     <ul id="tabs" class="inline-flex pt-2 px-1 w-full">
-      <li class="bg-white px-4 text-gray-800 font-semibold py-2 border-b -mb-px"><a id="default-tab" href="#first">Personal info</a></li>
-      <li class="px-4 text-gray-800 font-semibold py-2 rounded-t"><a href="#second">Security</a></li>
+      <li class="bg-white px-4 text-gray-800 font-semibold py-2 border-[#9B9B9B] border-b-[3px] -mb-px"><a id="default-tab" href="#first">Personal info</a></li>
+      <li class="px-4 text-gray-800 font-semibold py-2 rounded-t border-[#9B9B9B]"><a href="#second">Security</a></li>
     </ul>
   
     <!-- Tab Contents -->
-    <div id="tab-contents">
-      <div id="first" class="p-4">
-        First tab
+    <div id="tab-contents" class="parent">
+      <div id="first" class="p-4 space-y-4 w-3/4">
+        <div class="flex flex-row justify-between">
+            <div class="w-1/2">
+                <label for="firstName" class="block mb-2 text-sm font-medium text-gray-900">First Name</label>
+                <input type="text" name="firstName" id="first-name"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    placeholder="Cameron" required>
+            </div>
+            <div class="w-1/2 ml-4">
+                <label for="lastName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Last
+                    Name</label>
+                <input type="text" name="lastName" id="last-name"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    placeholder="Williamson" required>
+            </div>
+        </div>
+        <div>
+            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+            <input type="email" name="email" id="email"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                placeholder="admin@gmail.com" required>
+        </div>
+        <div>
+            <button type="submit" class="nav-btn-primary text-white w-1/2">Save</button>
+        </div>
       </div>
-      <div id="second" class="hidden p-4">
-        Second tab
+      <div id="second" class="hidden p-4 w-1/2 space-y-4">
+            <div class="relative">
+                <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Old Password</label>
+                <input type="password" name="password" id="password" placeholder="••••••••"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    required>
+                <i class="far fa-eye absolute top-10 right-4"></i>
+            </div>
+            <div class="relative">
+                <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">New Password</label>
+                <input type="password" name="password" id="password" placeholder="••••••••"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    required>
+                <i class="far fa-eye absolute top-10 right-4"></i>
+                <p class="text-gray-primary text-sm mt-2">Must be at least 8 characters.</p>
+            </div>
+            <div class="relative">
+                <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm New Password</label>
+                <input type="password" name="password" id="password" placeholder="••••••••"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    required>
+                <i class="far fa-eye absolute top-10 right-4"></i>
+                <p class="text-gray-primary text-sm mt-2">Both passwords must match.</p>
+            </div>
+            <div>
+                <button type="submit" class="nav-btn-primary text-white w-1/2">Save</button>
+            </div>
       </div>
     </div>
   </div>

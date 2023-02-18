@@ -14,7 +14,8 @@ tabTogglers.forEach(function(toggler) {
 
     for (let i = 0; i < tabContents.children.length; i++) {
       
-      tabTogglers[i].parentElement.classList.remove("border-b-[3px]");  tabContents.children[i].classList.remove("hidden");
+      tabTogglers[i].parentElement.classList.remove("border-b-[3px]"); 
+      tabContents.children[i].classList.remove("hidden");
       if ("#" + tabContents.children[i].id === tabName) {
         continue;
       }
@@ -48,3 +49,8 @@ parent.addEventListener("click", event => {
         showHide(inputElm, spanElm);
     }
 });
+
+function showModal(option) {
+  const selectedModal = document.getElementById(option);
+  selectedModal.classList.toggle("hidden");
+}

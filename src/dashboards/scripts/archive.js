@@ -96,7 +96,6 @@ function handleSelect() {
     const selectedModal = document.getElementById(option);
     selectedModal.classList.toggle("hidden");
     const checkedRows = document.querySelectorAll(".checkbox:checked").length;
-    console.log(document.querySelectorAll(".checkbox:checked"))
     switch(option){
       case "delete":
           document.getElementById("delete-text").textContent =

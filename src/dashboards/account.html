@@ -1,14 +1,15 @@
 <h1 class="text-4xl font-bold">Account Settings</h1>
 <div class="w-full mx-auto mt-4">
     <!-- Tabs -->
-    <ul id="tabs" class="inline-flex pt-2 px-1 w-full">
-      <li class="bg-white px-4 text-gray-800 font-semibold py-2 border-[#9B9B9B] border-b-[3px] -mb-px"><a id="default-tab" href="#first">Personal info</a></li>
+    <ul id="tabs" class="inline-flex pt-2 px-1 w-full border-b-[#D2D6DA] border-b-[1px]">
+      <li class="px-4 text-gray-800 font-semibold py-2 rounded-t border-[#9B9B9B] border-b-[3px]"><a id="default-tab" href="#first">Personal info</a></li>
       <li class="px-4 text-gray-800 font-semibold py-2 rounded-t border-[#9B9B9B]"><a href="#second">Security</a></li>
     </ul>
   
     <!-- Tab Contents -->
     <div id="tab-contents" class="parent">
       <div id="first" class="p-4 space-y-4 w-3/4">
+        <p>Your email was changed. Check your email  <span class="font-bold">admin@gmail.com</span> to confirm your new address</p>
         <div class="flex flex-row justify-between">
             <div class="w-1/2">
                 <label for="firstName" class="block mb-2 text-sm font-medium text-gray-900">First Name</label>
@@ -31,7 +32,7 @@
                 placeholder="admin@gmail.com" required>
         </div>
         <div>
-            <button type="submit" class="nav-btn-primary text-white w-1/2">Save</button>
+            <button onclick="showModal('verify')" type="submit" class="nav-btn-primary text-white w-1/2">Save</button>
         </div>
       </div>
       <div id="second" class="hidden p-4 w-1/2 space-y-4">
@@ -61,6 +62,37 @@
             <div>
                 <button type="submit" class="nav-btn-primary text-white w-1/2">Save</button>
             </div>
+      </div>
+    </div>
+  </div>
+  <div id="verify" class="fixed inset-0 hidden">
+    <div class="bg-gray-900 opacity-75 fixed inset-0" onclick="showModal('invite')"></div>
+    <div class="relative p-6">
+      <div
+        class="w-full space-y-4 absolute top-[100px] m-auto left-0 right-0 max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow-md"
+      >
+        <img
+          class="float-right cursor-pointer"
+          src="../../assets/close.svg"
+          alt="close icon"
+          onclick="showModal('verify')"
+        />
+        <h5 class="text-xl text-gray-900 text-center mt-2 font-bold">
+            Email is not verified
+        </h5>
+        <p id="comment-text" class="text-dark-modal-primary text-center mt-4">Check your email <span class="font-bold">admin@gmail.com</span> to confirm your new address.</p>
+        <div class="flex flex-row justify-around">
+          <button
+            type="submit"
+            class="nav-btn-secondary w-full mx-1 text-[#595959] border border-[#C0C0CF] rounded"
+            onclick="showModal('invite')"
+          >
+            Cancel
+          </button>
+          <button type="submit" class="nav-btn-primary w-full mx-1 text-white">
+            Resend link
+          </button>
+        </div>
       </div>
     </div>
   </div>

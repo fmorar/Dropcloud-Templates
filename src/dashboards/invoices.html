@@ -13,7 +13,7 @@
       <input type="file" name="myFile" class="drop-zone__input hidden" />
       <!-- add multiple attribute to input to support uploading more than one file-->
       <p class="drop-zone__text">
-        Drop file here or <span class="font-bold">browse</span>
+        Drag and drop invoices here, or <span class="font-bold">browse</span>
       </p>
     </div>
   </div>
@@ -83,11 +83,11 @@
       <!-- Dropdown menu -->
       <div
         id="dropdownDefaultRadio"
-        class="z-10 hidden w-48 bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600 mt-auto top-0 left-0 ml-0 absolute translate-y-[50px]"
+        class="z-10 hidden w-48 bg-white divide-y divide-gray-100 rounded-lg shadow mt-auto top-0 left-0 ml-0 absolute translate-y-[50px]"
         style="inset: 0px auto auto 0px"
       >
         <ul
-          class="p-3 space-y-3 text-sm text-gray-700 dark:text-gray-200"
+          class="p-3 space-y-3 text-sm text-[#6D767B] font-poppins"
           aria-labelledby="dropdownRadioButton"
         >
           <li>
@@ -99,11 +99,11 @@
                 value=""
                 name="default-radio"
                 onclick="handleRadioClick(this);"
-                class="w-4 h-4  bg-gray-100 border-gray-300 checked:bg-[#727272] text-[#727272]"
+                class="w-6 h-6 bg-gray-100 border-gray-300 checked:bg-[#727272] text-[#727272]"
               />
               <label
                 for="default-radio-1"
-                class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                class="ml-2 text-sm font-medium"
                 >All</label
               >
             </div>
@@ -116,11 +116,11 @@
                 value="processed"
                 name="default-radio"
                 onclick="handleRadioClick(this);"
-                class="w-4 h-4 bg-gray-100 border-gray-300 checked:bg-[#727272] text-[#727272]"
+                class="w-6 h-6 bg-gray-100 border-gray-300 checked:bg-[#727272] text-[#727272]"
               />
               <label
                 for="default-radio-2"
-                class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                class="ml-2 text-sm font-medium"
                 >Processed</label
               >
             </div>
@@ -133,11 +133,11 @@
                 value="pending"
                 name="default-radio"
                 onclick="handleRadioClick(this);"
-                class="w-4 h-4 bg-gray-100 border-gray-300 checked:bg-[#727272] text-[#727272]"
+                class="w-6 h-6 bg-gray-100 border-gray-300 checked:bg-[#727272] text-[#727272]"
               />
               <label
                 for="default-radio-3"
-                class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                class="ml-2 text-sm font-medium"
                 >Pending</label
               >
             </div>

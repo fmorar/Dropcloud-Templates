@@ -17,6 +17,9 @@ module.exports = {
         "sidebar-options": "#121627",
         "sidebar-hover": "#949494"
       },
+      fontFamily: {
+        poppins: ['"Poppins"'],
+      }
     },
   },
 }

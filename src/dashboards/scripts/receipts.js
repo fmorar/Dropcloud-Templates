@@ -323,11 +323,11 @@ getData()
                           </svg>
                       </button>
                       <div class="dropdown-content absolute -left-4 bg-white rounded-md py hidden z-40">
-                      <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
+                      <ul class="py-1 text-sm text-[#6F6F6F] dark:text-gray-200"
                       aria-labelledby="dropdownDividerButton">
                       <li>
                           <a href="#"
-                              class="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                              class="flex items-center font-poppins px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                               <p>
                                   Comment
                               </p>
@@ -335,7 +335,7 @@ getData()
                       </li>
                       <li>
                           <a href="#"
-                              class="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                              class="flex items-center font-poppins px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                               <p>
                                   Archive
                               </p>
@@ -343,7 +343,7 @@ getData()
                       </li>
                       <li>
                           <a href="#"
-                              class="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                              class="flex items-center font-poppins px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                               <p>
                                   Delete
                               </p>
